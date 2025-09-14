@@ -1,0 +1,33 @@
+@startuml
+class Car {
+  - make: String
+  - model: String
+  - engine: String
+  - color: String
+  - seats: int
+  --
+  + getMake(): String
+  + getModel(): String
+  + getEngine(): String
+  + getColor(): String
+  + getSeats(): int
+  + toString(): String
+  + {static} builder(make: String, model: String): Builder
+}
+
+class "Car.Builder" as CarBuilder {
+  - make: String
+  - model: String
+  - engine: String
+  - color: String
+  - seats: int
+  --
+  + Builder(make: String, model: String)
+  + withEngine(engine: String): CarBuilder
+  + withColor(color: String): CarBuilder
+  + withSeats(seats: int): CarBuilder
+  + build(): Car
+}
+
+CarBuilder ..> Car : <<create>>
+@enduml
