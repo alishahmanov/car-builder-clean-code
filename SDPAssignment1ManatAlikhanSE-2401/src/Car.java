@@ -45,7 +45,7 @@ public final class Car {
             this.model = requireNonBlank(model, "model");
         }
 
-        // Each method configures only one field → small and simple methods
+        // Each method configures only one field small and simple methods
         public Builder withEngine(String engine) {
             this.engine = requireNonBlank(engine, "engine");
             return this;
@@ -63,12 +63,12 @@ public final class Car {
         }
         // Fluent API: allows chaining like builder.withX().withY().build()
 
-        // Final step → return ready Car object
+        // Final step return ready Car object
         public Car build() {
             return new Car(this);
         }
 
-        // Separate method for validation → avoids code duplication (DRY)
+        // Separate method for validation avoids code duplication (DRY)
         private static String requireNonBlank(String value, String fieldName) {
             if (value == null || value.trim().isEmpty()) {
                 throw new IllegalArgumentException(fieldName + " must not be blank");
